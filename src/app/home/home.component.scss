@@ -1,0 +1,301 @@
+/* @font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato-Light.ttf");
+}
+@font-face {
+    font-family: Gotham;
+    src: url("../fonts/GothamRoundedMedium_21022.ttf");
+} */
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  font-family: 'Courier New', Courier, monospace;
+}
+h2{
+  font-size: 35px;
+  margin: 6vh;
+  font-weight: bold;
+  color: black;
+}
+h2:hover{
+  color: #0082e6;
+}
+/*------------------NAVBAR--------------------------*/
+nav{
+  background: #0082e6;
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: #ffffff;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+a:hover{
+  text-decoration: none;
+  background: #1b9bff;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;  
+  display: none;
+}
+#check{
+  display: none;
+}
+/*-----------NAVBAR FOR MOBILE-----------------------*/
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover{
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+@media (max-width: 400px){
+  label.logo{
+    font-size: 25px;
+    padding-left: 50px;
+  }
+}
+/*-----------------MAIN SECTION--------------------*/
+.main-section{
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../Images/mainBackground.jpg);
+  background-size: cover;
+  height: calc(100vh - 80px);
+}
+.main-section h1{
+  padding-top: 8%;
+  color: white;
+  font-weight: bold;
+  font-size: 8vh;
+  padding: 7% 10%;
+  line-height: 1.3;
+  text-align: center;
+}
+.container-search{
+  /* position: absolute;
+  //top: 60%;
+  left: 48vw;
+  //background: #0082e6;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px; */
+  position: absolute;
+  //top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.container-search:hover #search, #search:focus{
+  width: 500px;
+  border-radius: 50px;
+}
+.container-search #search:focus{
+  box-shadow: 0 0 5px 0 black;
+}
+.container-search:hover #btn-search{
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background: dodgerblue;
+}
+/* .container-search #btn-search:hover{
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background: black;
+} */
+#search{
+  /* border: 3px solid #2c3e50;
+  /*height: 40px;
+  width: 450px;
+  height: 10vh;
+  width: 40vw;
+  border-radius: 50px;
+  padding: 0px 10px; */
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  width: 15px;
+  transition-duration: .5s;
+  position: relative;
+  height: 53px;
+}
+.btn-search{
+  color: #35373A;
+  float: right;
+  width: 50px;
+  height: 50px;
+  background: #0082e6;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8vh 3px;
+}
+#btn-search{
+  font-style: normal;
+  font-family: fontAwesome;
+  font-size: 20px;
+  padding: 18px;
+  background: rgb(50, 50 , 50);
+  color: #fff;
+  border-radius: 50%;
+  left: -50px;
+  top: 1px;
+  transition-duration: .5s;
+  position: relative;
+}
+
+/*-------------MAIN SECION FOR MOBILE -----------------*/
+@media (max-width: 700px){
+  .main-section h1{
+    /*padding-top: 8%;
+    color: white;
+    font-weight: bold;*/
+    font-size: 6vh;
+    padding-top: 13vh;
+    margin-bottom: 2vh;
+    /*padding: 7% 10%;
+    line-height: 1.3;
+    text-align: center;*/
+  }
+  .container-search:hover #search, #search:focus{
+    width: 60vw;
+    border-radius: 50px;
+  }
+  .container-search:hover #btn-search{
+    float: right;
+  }
+  //#search:focus #btn-search{ height: 2vh;}
+  /* #search{
+    width: 65vw;
+  }
+  .btn-search{    
+    margin-right: -15vw;
+  } */
+}
+/*-------------- SERVICES SECTION -------------------*/
+.section-services{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  background-color: white;
+  padding-bottom: 50px;
+}
+.service{
+  width: 150px;
+  margin: 10px;
+  //background: #E5E5E5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 2px #DEDEDE;
+}
+.service p{
+  margin: 0 0 12px;
+    /* text-align: center; */
+    /* font-weight: bold; */
+  //align-items: center;
+  //vertical-align: middle;
+    margin-top: 3vh;
+    font-family: sans-serif;
+    font-size: 3.2vh;
+}
+.img-service{
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  position: relative;
+  //top: -60px;
+  box-shadow: 0px 0px 20px -6px #DEDEDE;
+}
+#imagen1{ background-image: url("../Images/img-carpinteria-temporal.png");}
+#imagen2{ background-image: url("../Images/img-mecanico-temporal.jpg"); }
+#imagen3{ background-image: url("../Images/img-electricista-temporal.jpg");}
+#imagen4{ background-image: url("../Images/img-pintor-temporal.jpg");}
+#imagen5{ background-image: url("../Images/img-oficios-temporal.jpg");}
+#imagen6{ background-image: url("../Images/img-cocina-temporal.jpg");}
+#imagen7{ background-image: url("../Images/img-mas-temporal.jpg");}
+
+/*---------------------FOOTER-------------------*/
+footer{
+  background-color: white;
+  color: #2c3e50;
+  font-size: 3vh;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2px;
+}
