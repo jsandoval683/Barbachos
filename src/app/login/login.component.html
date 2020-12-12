@@ -2,7 +2,7 @@
     <div>
         <h1>Ingresa a tu cuenta</h1>
     </div>
-    <form id="formulario">
+    <form id="formulario" (submit)="loginUser($event)">
         
         <div>
             <br />
@@ -12,10 +12,10 @@
             <mat-label>Email</mat-label>
             <input matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" id="email">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
+            Introduzca un Email válido
             </mat-error>
             <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
+            El Email es <strong>requerido</strong>
             </mat-error>
         </mat-form-field>
     

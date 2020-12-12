@@ -22,13 +22,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 
+//
+import { AdminModule } from './admin/admin.module';
+import { AuthService } from './services/auth.service';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginFacebookComponent } from './login-facebook/login-facebook.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ClienteComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    LoginFacebookComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +54,20 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    AdminModule,
+    MatToolbarModule
   ],
-  providers: [],
+  providers: [
+    // provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
+    // provide: 'BASE_URL'
+    { provide: 'BASE_URL', useFactory: getBaseUrl },
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function getBaseUrl() {
+  return document.getElementsByTagName('base')[0].href;
+}

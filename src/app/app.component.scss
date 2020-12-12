@@ -1,16 +1,27 @@
+.navbar {
+    justify-content: space-between;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+    // background-color: rgb(138, 43, 226);
+
+    background-color: #37c2cc;
+}.group1 {
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+span {
+    padding-right: 1rem;
+}
 .buttonx{
     visibility: hidden;
 }
-.list{
-    width: 100px;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 3%;
-    margin-left: 1,5%;
-    margin-right: 1,5%;
+.acceder{
+    color: #000000;
+    background-color: #37c2cc;
 }
-a{
-    text-decoration: none;
-    color: black;
-    margin-bottom: 5%;
+.casa{
+    width: 100px;
+    height: 100%;
+
+    color: #000000;
 }
