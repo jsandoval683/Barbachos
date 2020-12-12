@@ -1,40 +1,32 @@
 <html>
   <body>
     <mat-drawer-container id="container" class="example-container">
-      <!-- <mat-drawer #drawer mode="side" class="list">
-        <a [routerLink]="['/home']">Inicio</a><br><br>
-        <a [routerLink]="['/cliente']">Cliente</a><br><br>
-        <a [routerLink]="['/signup']">Signup</a><br> <br>
-        <a [routerLink]="['/login']">Login</a>
-      </mat-drawer>
-    
-    <div class="buttonx">
-      <button mat-mini-fab color="accent" (click)="drawer.toggle();"><mat-icon>menu</mat-icon></button>
-      
-    </div> -->
-    <button mat-button [matMenuTriggerFor]="aboveMenu"  [routerLink]="['/login']" >Above</button>
-      <mat-menu #aboveMenu="matMenu" yPosition="above">
-        <button mat-menu-item  >Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
 
-      <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
-      <mat-menu #belowMenu="matMenu" yPosition="below">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+      <mat-toolbar color="primary" class="navbar">
+        <div [routerLink]="['/home']" >Barbachos</div>
+          <!-- <span>Hogar</span>
+          <span>Identifícate</span>
+          <span>Nosotros</span> -->
+        <div *ngIf="isLoggedIn()">
+          <span>Bienvenido {{ name }}</span>
+        </div>
+        <div class="group1">
 
-      <button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
-      <mat-menu #beforeMenu="matMenu" xPosition="before">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+          <!-- <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" [routerLink]="['/home']">
+            <mat-icon>home</mat-icon>
+          </button>
+          <button mat-raised-button color="primary" [routerLink]="['/login']" >Acceder</button> -->
 
-      <button mat-button [matMenuTriggerFor]="afterMenu">After</button>
-      <mat-menu #afterMenu="matMenu" xPosition="after">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+
+          <span *ngIf="!isLoggedIn()"><button class="acceder" mat-raised-button color="primary" [routerLink]="['/login']" >Acceder</button></span>
+          <span><button mat-icon-button color="primary" class="casa" [routerLink]="['/home']">
+            <mat-icon>home</mat-icon>
+          </button></span>
+          <span *ngIf="isLoggedIn()">
+            <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+          </span>
+        </div>
+      </mat-toolbar>
     <router-outlet></router-outlet>
     
     </mat-drawer-container> 
@@ -42,27 +34,3 @@
   </body>
 
 </html>
-
-<!-- <html>
-  <body>
-    <mat-sidenav-container class="example-container">
-      <mat-sidenav #sidenav mode="side">
-        <mat-nav-list>
-          <a [routerLink]="['/home']">Inicio</a><br>
-          <a [routerLink]="['/cliente']">Cliente</a><br>
-          <a [routerLink]="['/signup']">Signup</a><br>
-          <a [routerLink]="['/login']">Login</a>
-        </mat-nav-list>
-
-      </mat-sidenav>
-
-      <div class="buttonx">
-        <button mat-mini-fab color="accent" (click)="nav.toggle();"><mat-icon>menu</mat-icon></button>
-        
-      </div>
-      <router-outlet></router-outlet>
-
-    </mat-sidenav-container>
-  </body>
-</html> -->
-
