@@ -22,21 +22,8 @@ export class AppComponent {
   title = 'Barbachos';
 
   ngOnInit() {
-    // this.onCheckUser();
     this.getUserProfile();
   }
-
-  // onCheckUser () :void{
-
-  //   if (this.auth.getUserProfile() == null){
-  //     this.isLogged = false;
-  //   } else {
-  //     this.isLogged = true;
-  //     // console.log(this.auth.userProfile.name);
-  //     // this.name = this.auth.userProfile.name;
-  //   }
-
-  // }
 
   isLoggedIn() {
     return this.auth.isLoggedIn();

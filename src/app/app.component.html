@@ -1,29 +1,20 @@
 <html>
   <body>
     <mat-drawer-container id="container" class="example-container">
-
       <mat-toolbar color="primary" class="navbar">
         <div [routerLink]="['/home']" >Barbachos</div>
-          <!-- <span>Hogar</span>
-          <span>Identifícate</span>
-          <span>Nosotros</span> -->
         <div *ngIf="isLoggedIn()">
-          <span>Bienvenido {{ name }}</span>
         </div>
         <div class="group1">
-
-          <!-- <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" [routerLink]="['/home']">
-            <mat-icon>home</mat-icon>
-          </button>
-          <button mat-raised-button color="primary" [routerLink]="['/login']" >Acceder</button> -->
-
-
           <span *ngIf="!isLoggedIn()"><button class="acceder" mat-raised-button color="primary" [routerLink]="['/login']" >Acceder</button></span>
           <span><button mat-icon-button color="primary" class="casa" [routerLink]="['/home']">
             <mat-icon>home</mat-icon>
           </button></span>
+          <span *ngIf="isLoggedIn()"><button mat-icon-button color="primary" class="perfil" [routerLink]="['/profile']">
+            <mat-icon>face</mat-icon>
+          </button></span>
           <span *ngIf="isLoggedIn()">
-            <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+            <button mat-raised-button color="primary" (click)="logout()">Salir</button>
           </span>
         </div>
       </mat-toolbar>
