@@ -15,36 +15,32 @@ export class ProfileComponent implements OnInit {
   userProfile: UserProfile
   profileArray: any[]
 
-
   constructor(public auth: AuthService) { }
 
-
   ngOnInit() {
-    this.profileArray = this._makeProfileArray(this.userProfile);
-    // this.userProfile.subscribe(profile=>{
-    // this.user = profile.user;
+    this.getUserProfile();
+    // this.profileArray = this._makeProfileArray(this.userProfile);
   }
 
   isLoggedIn() {
     return this.auth.isLoggedIn();
   }
 
-
   logout() {
     this.auth.logout();
   }
 
-  // private _makeProfileArray(obj) {
-  //   const keyPropArray = [];
+  guardarDato(data){
+    this.userProfile = data
+  }
 
-  //   for (const key in obj) {
-  //     if (obj.hasOwnProperty(key)) {
-  //       keyPropArray.push(key + ': ' + obj[key]);
-  //     }
-  //   }
+  getUserProfile() {
 
-  //   return keyPropArray;
-  // }
+    this.auth.getUserProfile().subscribe(data => {
+      this.guardarDato(data);
+    })
+  }
+
   private _makeProfileArray(obj) {
     const keyPropArray = [];
 
